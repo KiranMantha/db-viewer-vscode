@@ -2,6 +2,7 @@
   "name": "db-viewer",
   "displayName": "DB Viewer",
   "description": "A vscode sidebar extension to view databases",
+  "publisher": "Kiran Mantha",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.96.0"
@@ -9,8 +10,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
-  "main": "./dist/extension.js",
+  "main": "./out/extension.js",
   "author": "KiranMantha",
   "bugs": {
     "url": "https://github.com/KiranMantha/db-viewer-vscode/issues"
@@ -21,38 +21,41 @@
     "url": "git+https://github.com/KiranMantha/db-viewer-vscode.git"
   },
   "license": "SEE LICENSE IN LICENSE.md",
+  "activationEvents": [],
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "db-viewer-view",
+          "title": "DB Viewer",
+          "icon": "media/db.svg"
+        }
+      ]
+    },
     "views": {
-      "explorer": [
+      "db-viewer-view": [
         {
           "id": "sqliteExplorer",
-          "name": "SQLite Explorer"
+          "name": "SQLite Explorer",
+          "icon": "media/db.svg",
+          "type": "tree",
+          "contextualTitle": "SQLite Explorer"
         }
       ]
     },
     "commands": [
       {
-        "command": "sqliteExplorer.openDatabase",
-        "title": "Open SQLite Database"
+        "command": "extension.openDatabase",
+        "title": "Open SQLite Database Using DB Viewer"
       }
-    ],
-    "menus": {
-      "view/title": [
-        {
-          "command": "sqliteExplorer.openDatabase",
-          "when": "view == sqliteExplorer",
-          "group": "navigation"
-        }
-      ]
-    }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
-    "compile": "yarn run check-types && yarn run lint && node esbuild.js",
+    "compile": "yarn run check-types && yarn run lint && tsc -p ./",
     "watch": "npm-run-all -p watch:*",
-    "watch:esbuild": "node esbuild.js --watch",
-    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "yarn run check-types && yarn run lint && node esbuild.js --production",
+    "watch:tsc": "tsc -watch -p ./",
+    "package": "yarn run check-types && yarn run lint && tsc -p ./",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",

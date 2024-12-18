@@ -1,73 +1,45 @@
-# db-viewer-vscode
+# DB Viewer
 
-A vscode sidebar extension to visualize databases
-
-This is the README for your extension "db-viewer". After writing up a brief description, we recommend including the following sections.
+This Visual Studio Code extension provides a sidebar interface to interact with and visualize SQLite databases. With this extension, you can easily open `.db` files, view the tables within the database, and inspect the columns of each table.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- **Open SQLite Databases**: Select and open `.db` files from your file system.
+- **Table View**: View a list of all tables in the selected database.
+- **Column View**: Explore the columns in each table with a tree structure.
+- **Button for Database Processing**: Trigger custom processing for the selected database with a button.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code (VSCode)
+- SQLite database files (`.db`)
 
-## Extension Settings
+## Installation
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+To install this extension locally:
 
-For example:
+1. Download or clone this repository.
+2. Open VSCode and navigate to the Extensions view.
+3. Click on the `...` menu at the top of the Extensions view and select **Install from VSIX...**.
+4. Choose the `.vsix` file created from this extension to install it.
 
-This extension contributes the following settings:
+## Usage
 
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
+1. After installation, you'll see a new icon in the **Activity Bar** on the left side of VSCode.
+2. Click the extension icon to open the sidebar.
+3. Use the **"Open SQLite Database"** button to select a `.db` file.
+4. Once the database is loaded, you can see the list of tables and explore each table's columns.
+5. If you wish, you can use the **"Process Database"** button to trigger additional database processing.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Currently, this extension only supports SQLite databases with `.db` file extensions.
+- Some large databases might take a longer time to load, depending on the system performance.
 
-## Release Notes
+## Contributing
 
-Users appreciate release notes as you update your extension.
+Feel free to fork the repository and submit issues or pull requests. Contributions are always welcome!
 
-### 1.0.0
+## License
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-- Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-- Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension is licensed under the MIT License. See the LICENSE file for more details.
